@@ -32,7 +32,7 @@ ws.on('message', async (data: WebSocket.Data) => {
 
         // 環境変数に設定されたユーザー名と投稿者のユーザー名が一致する場合のみ処理する
         if (payload.account.acct === MASTODON_USERNAME) {
-            const content = payload.content.replace(/(<br \/>)/gi, '\n').replace(/(<([^>]+)>)/gi, '');
+            const content = payload.content.replace(/(<br \/>)/gi, '\n').replace(/(<([^>]+)>)/gi, '').replace(/(&amp;)/gi, '&').replace(/(&lt;)/gi, '<').replace(/(&gt;)/gi, '>').replace(/(&quot;)/gi, '"').replace(/(&#39;)/gi, "'").replace(/(&#x60;)/gi, '`').replace(/(&#169;)/gi, '©');
             const mediaAttachments = payload.media_attachments;
             let mediaIds: string[] = [];
 
