@@ -2,5 +2,6 @@ version: '3.9'
 
 services:
   mastodon-misskey-bot:
+    container_name: mastodon-misskey-bot
     build: .
     restart: unless-stopped
