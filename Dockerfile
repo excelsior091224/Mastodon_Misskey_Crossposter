@@ -9,7 +9,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # パッケージをインストール
-RUN npm install --also=dev && npm install --save-dev @types/ws @types/form-data
+RUN npm install --also=dev && npm install --save-dev @types/ws
 
 # アプリケーションのソースコードをコピー
 COPY . .
